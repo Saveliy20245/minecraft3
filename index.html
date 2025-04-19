@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Стили для 3D-куба */
+        .cube-container {
+            perspective: 1000px;
+        }
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 5s infinite linear;
+        }
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+        }
+        .front { transform: translateZ(50px); }
+        .back { transform: rotateY(180deg) translateZ(50px); }
+        .right { transform: rotateY(90deg) translateZ(50px); }
+        .left { transform: rotateY(-90deg) translateZ(50px); }
+        .top { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+        @keyframes rotateCube {
+            from { transform: rotateY(0deg) rotateX(0deg); }
+            to { transform: rotateY(360deg) rotateX(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-green-700 to-blue-500 text-white">
+
+    <!-- Шапка сайта -->
+    <header class="bg-gray-900 py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-2xl font-bold text-yellow-400">Minecraft World</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#hero" class="hover:text-yellow-400">Главная</a></li>
+                    <li><a href="#news" class="hover:text-yellow-400">Новости</a></li>
+                    <li><a href="#guides" class="hover:text-yellow-400">Гайды</a></li>
+                    <li><a href="#servers" class="hover:text-yellow-400">Серверы</a></li>
+                    <li><a href="#contacts" class="hover:text-yellow-400">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главная секция -->
+    <section id="hero" class="py-16 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4">Добро пожаловать в мир Minecraft!</h2>
+            <p class="text-lg mb-6">Исследуйте бесконечные возможности, стройте, сражайтесь и выживайте.</p>
+            <a href="#servers" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded">Начать игру</a>
+            <div class="cube-container mt-8 mx-auto w-[100px] h-[100px]">
+                <div class="cube">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Последние новости</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Вышло обновление 1.20</h3>
+                    <p>Добавлены новые блоки, мобы и механики!</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Майнкрафт стал доступен на PS5</h3>
+                    <p>Теперь игра поддерживает 4K и 60 FPS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гайды -->
+    <section id="guides" class="py-16 bg-gray-700">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Гайды и советы</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Как быстро собрать алмазы?</h3>
+                    <p>Используйте железную кирку и ищите алмазы на уровне 11.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Как победить Края?</h3>
+                    <p>Соберите броню, лук и стрелы, а затем активируйте портал.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Серверы -->
+    <section id="servers" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Популярные серверы</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Hypixel</h3>
+                    <p>Лучший сервер с мини-играми и PvP.</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded">
+                    <h3 class="text-xl font-bold mb-2">Cubecraft</h3>
+                    <p>Интересные режимы и дружелюбное сообщество.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="py-16 bg-gray-700">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Свяжитесь с нами</h2>
+            <form id="contactForm" class="max-w-md mx-auto space-y-4">
+                <input type="text" placeholder="Ваше имя" class="w-full px-4 py-2 bg-gray-800 rounded" required>
+                <input type="email" placeholder="Ваш email" class="w-full px-4 py-2 bg-gray-800 rounded" required>
+                <textarea placeholder="Ваше сообщение" class="w-full px-4 py-2 bg-gray-800 rounded"></textarea>
+                <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded w-full">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-gray-900 py-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Minecraft World. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript для формы обратной связи
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Сообщение отправлено!');
+        });
+    </script>
+</body>
+</html>
